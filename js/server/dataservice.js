@@ -20,7 +20,9 @@ var database = {
         {
             if (err == null)
             {
+                console.log("Connected to Dongo DB")
                 itemSchema = {
+                    itemId:Number,
                     name : String,
                     cost : Number,
                     type : String,
@@ -37,7 +39,9 @@ var database = {
                         },
                         quantity: Number
                     } ]
-                }
+                };
+                CartModel = mongoose.model("cart", cartSchema);
+                ItemModel = mongoose.model("item", itemSchema);
             } else {
                 console.log("An unknown error occured")
             }
@@ -46,6 +50,10 @@ var database = {
     
     displayCartItems : function(id ,callback) {
         CartModel.find({_id : id}, callback);
+    },
+
+    displayItemDetails : function(id, callback) {
+        ItemModel.findOne({itemId : id}, callback);
     }
 
 

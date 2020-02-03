@@ -47,7 +47,9 @@ var database = {
             }
         });
     },
-    
+    getCart:function(callback){
+        CartModel.find({}).exec(callback);
+    },
     displayCartItems : function(id ,callback) {
         CartModel.find({_id : id}, callback);
     },

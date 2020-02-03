@@ -63,6 +63,18 @@ var routes = function () {
         });
     });
 
+    router.get('/cart',function(req,res){
+        res.sendFile(__dirname + '/views/cart.html');
+    });
+    router.get('/api/cart',function(req,res){
+        db.getCart(function(err,items){
+            if(err){
+                res.status(500).send("Unable to get cart");
+            }else{
+                res.status(200).send(items);
+            }
+        })
+    });
     return router;
 };
 

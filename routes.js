@@ -11,6 +11,9 @@ var routes = function () {
         extended: true
     }));
 
+    router.get("/",function(req,res){
+        res.sendFile(__dirname + "/views/index.html");
+    })
     //localost:4000/css/*
     router.get("/css/*", function(request,response){
         console.log(request.originalUrl);

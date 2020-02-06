@@ -80,7 +80,25 @@ var routes = function () {
         })
     });
 
-    
+    router.post('/api/cart',function(req,res){
+        var data = req.body;
+        db.addCart(data.name, data.quantity,data.price, function(err, cart){
+            if(err){
+                res.status(500).send("Unable to add item cart");
+            }else{
+                res.status(200).send("Item added to Cart");
+            }
+        })
+    })
+    router.delete('/api/cart',function(req,res){
+        db.deleteCart(function(err,delCar){
+            if(err){
+                res.status(500).send("Unable to delete cart");
+            }else{
+                res.status(200).send("Deleted Cart");
+            }
+        })
+    })
     return router;
 };
 

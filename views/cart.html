@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cart</title>
+    <script src="../js/client/jquery-3.4.1.min.js"></script>
+    <script src="../js/client/cart.js"></script>
+</head>
+<body>
+    <h1>Cart</h1>
+    <h4>Cart ID: </h4>
+    <form id = "cart">
+    <table id="cartTable">
+        <tr id="cartItems">
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price ($)</th>
+        </tr>
+        
+        <tr>
+            <tr></tr>
+            <td>Total ($)</td>
+            <td></td>
+            <td ><input type = "text" id = "total" name = "total" readonly></td>
+        </tr>
+    </table>
+    <input type="reset" value="Clear All Items">
+</form>
+    <a href="/cartDetails"><button>Cart Details</button></a>
+</body>
+</html>

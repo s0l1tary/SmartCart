@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function(){
     var params = new URLSearchParams(window.location.search);
     var cartId = params.get('id');
@@ -17,3 +16,4 @@ $(document).ready(function(){
             }
         }
     )
+})

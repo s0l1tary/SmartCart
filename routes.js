@@ -69,6 +69,7 @@ var routes = function () {
     router.get('/cart',function(req,res){
         res.sendFile(__dirname + '/views/cart.html');
     });
+
     router.get('/api/cart',function(req,res){
         db.getCart(function(err,items){
             if(err){
@@ -78,6 +79,8 @@ var routes = function () {
             }
         })
     });
+
+    
     return router;
 };
 

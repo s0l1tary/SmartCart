@@ -52,18 +52,17 @@ var database = {
         // CartModel.findOne({_id : id}).populate('item').exec(callback);
         CartModel.findOne({_id : id}).populate('cart.item').exec(callback);
     },
-
     displayItemDetails: function (id, callback) {
         ItemModel.findOne({ itemId: id }, callback);
     },
     deleteCart: function (callback) {
         CartModel.delete({}, callback);
     },
-    addCart: function (i, q, p, callback) {
-        var newItem = new CartModel({
-            name: i,
-            quantity: q,
-            cost: p,
+    addCart: function (cartId, itemId, quantity, callback) {
+        cart = cartId;
+        var newItem = new Cart({
+            item: itemId,
+            quantity: quantity
         })
         newItem.save(callback);
     }

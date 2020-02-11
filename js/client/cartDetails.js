@@ -19,3 +19,60 @@ $(document).ready(function(){
           console.log(err.responseText);
       })
 })
+
+function addItem() {
+    var urlParams=new URLSearchParams(window.location.search);
+    var itemId=urlParams.get('id');
+    alert("Add");
+    $.ajax({
+        url: "/api/cartDetails/"+itemId,
+        method: "get",
+        dataType: "json"
+      }).done(
+          function(data) {
+            $.ajax({
+                url: "/api/add/"+data.cost,
+                method: "get",
+                dataType: "json"
+            })
+          }
+      )
+}
+
+function removeItem() {
+    var urlParams=new URLSearchParams(window.location.search);
+    var itemId=urlParams.get('id');
+    alert("Remove");
+    $.ajax({
+        url: "/api/cartDetails/"+itemId,
+        method: "get",
+        dataType: "json"
+      }).done(
+          function(data) {
+            $.ajax({
+                url: "/api/remove/"+data.cost,
+                method: "get",
+                dataType: "json"
+            })
+          }
+      )
+}
+
+function clearAll() {
+    var urlParams=new URLSearchParams(window.location.search);
+    var itemId=urlParams.get('id');
+    alert("Clear");
+    $.ajax({
+        url: "/api/cartDetails/"+itemId,
+        method: "get",
+        dataType: "json"
+      }).done(
+          function(data) {
+            $.ajax({
+                url: "/api/delete/"+data.cost,
+                method: "get",
+                dataType: "json"
+            })
+          }
+      )
+}

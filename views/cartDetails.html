@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="../js/client/jquery-3.4.1.min.js"></script>
-    <script src="../js/client/cartDetails.js"></script>
 </head>
 <body>
     <h1>Show item details</h1>
@@ -23,5 +22,11 @@
     <span class="detailsHeader">Country: </span><span id="countryTxt"></span>
     <br>
     <span class="detailsHeader">Expiry Date: </span><span id="expiryDateTxt"></span>
+    <br><br>
+    <p><button onclick="return addItem()">Add</button>
+        <button onclick="return removeItem()">Remove</button>
+        <button onclick="return clearAll()">Clear All</button>
+    </p>
+    <script src="../js/client/cartDetails.js"></script>
 </body>
 </html>

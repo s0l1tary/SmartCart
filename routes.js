@@ -80,9 +80,20 @@ var routes = function () {
         })
     });
 
+    router.get('/api/cart/:id',function(req,res){
+        var data = req.body;
+        db.addCart(data.itemId, function(err, cart){
+            if(err){
+                res.status(500).send("Unable to add item cart");
+            }else{
+                res.status(200).send("Item added to Cart");
+            }
+        })
+    })
+
     router.post('/api/cart',function(req,res){
         var data = req.body;
-        db.addCart(data.name, data.quantity,data.price, function(err, cart){
+        db.addCart(data.itemId, function(err, cart){
             if(err){
                 res.status(500).send("Unable to add item cart");
             }else{
@@ -99,6 +110,24 @@ var routes = function () {
             }
         })
     })
+
+    router.get("/api/add/:costs",function(req,res) {
+        var cost = req.params.costs
+        console.log(cost);
+        res.redirect("192.168.240.1/ardruino/add/"+cost);
+    });
+
+    router.get("/api/remove/:costs",function(req,res) {
+        var cost = req.params.costs
+        console.log(cost);
+        res.redirect("192.168.240.1/ardruino/remove/"+cost);
+    });
+
+    router.get("/api/delete/:costs",function(req,res) {
+        var cost = req.params.costs
+        console.log(cost);
+        res.redirect("192.168.240.1/ardruino/delete/"+cost);
+    });
     return router;
 };
 

@@ -10,7 +10,7 @@ var CartModel;
 var database = {
     connect: function () {
         //mongodb/default port number/name of database to use
-        mongoose.connect('mongodb://localhost:27017/smartCartDB',
+        mongoose.connect('mongodb://192.168.240.211:27017/smartCartDB',
             {
                 useNewUrlParser: true,
                 useFindAndModify: false,

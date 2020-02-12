@@ -30,11 +30,7 @@ function addItem() {
         dataType: "json"
       }).done(
           function(data) {
-            $.ajax({
-                url: "/api/add/"+data.cost,
-                method: "get",
-                dataType: "json"
-            })
+            window.location.href="http://192.168.240.1/arduino/add/"+data.cost
           }
       )
 }
@@ -53,7 +49,11 @@ function removeItem() {
                 url: "/api/remove/"+data.cost,
                 method: "get",
                 dataType: "json"
-            })
+            }).done(
+                alert("hello world")
+            ).fail(
+                alert("ERROR")
+            )
           }
       )
 }
@@ -72,7 +72,11 @@ function clearAll() {
                 url: "/api/delete/"+data.cost,
                 method: "get",
                 dataType: "json"
-            })
+            }).done(
+                alert("hello world")
+            ).fail(
+                alert("ERROR")
+            )
           }
       )
 }

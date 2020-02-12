@@ -111,22 +111,20 @@ var routes = function () {
         })
     })
 
-    router.get("/api/add/:costs",function(req,res) {
-        var cost = req.params.costs
-        console.log(cost);
-        res.redirect("192.168.240.1/ardruino/add/"+cost);
+    router.get("http://192.168.240.1/arduino*",function(req,res) {
+        res.send("Thank you");
     });
 
     router.get("/api/remove/:costs",function(req,res) {
         var cost = req.params.costs
         console.log(cost);
-        res.redirect("192.168.240.1/ardruino/remove/"+cost);
+        res.redirect("https://192.168.240.1/arduino/remove/"+cost);
     });
 
     router.get("/api/delete/:costs",function(req,res) {
         var cost = req.params.costs
         console.log(cost);
-        res.redirect("192.168.240.1/ardruino/delete/"+cost);
+        res.redirect("https://192.168.240.1/arduino/delete/"+cost);
     });
     return router;
 };
